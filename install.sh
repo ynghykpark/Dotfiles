@@ -114,7 +114,7 @@ change_default_shell() {
 
 
 install_python_package() {
-    python3 -m pip install pynvim python-language-server
+    python3 -m pip install pynvim python-language-server imgcat
 }
 
 
