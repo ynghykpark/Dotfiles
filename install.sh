@@ -124,6 +124,11 @@ install_python_package() {
 }
 
 
+setup_time() {
+    sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+}
+
+
 install_ubuntu() {
     install_package_for_ubuntu
     setup_tmux
@@ -134,6 +139,7 @@ install_ubuntu() {
     setup_neovim
     setup_git
     change_default_shell
+    setup_time
 }
 
 
