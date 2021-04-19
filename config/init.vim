@@ -100,6 +100,22 @@ if executable('pyls')
         \ })
 endif
 
+if executable('texlab')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'texlab',
+        \ 'cmd': {server_info->['texlab']},
+        \ 'whitelist': ['tex', 'bib', 'sty'],
+        \ })
+endif
+
+if executable('clangd-9')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd-9']},
+        \ 'whitelist': ['cpp', 'h', 'hpp'],
+        \ })
+endif
+
 set completeopt=noinsert,menuone,noselect
 augroup END
 

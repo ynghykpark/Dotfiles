@@ -14,9 +14,15 @@ symlink() {
 }
 
 
+install_texlab() {
+    curl -L https://github.com/latex-lsp/texlab/releases/download/v2.2.2/texlab-x86_64-linux.tar.gz | tar zxv -C ~/.local/bin/
+}
+
+
 install_package_for_ubuntu() {
     declare -a packages; packages=( \
-        sudo curl git neovim zsh vifm tzdata curl neovim tree highlight \
+        sudo curl git neovim zsh vifm tzdata \
+        curl neovim tree highlight clangd-9 \
     )
     sudo sed -i "s/archive.ubuntu/mirror.kakao/g" /etc/apt/sources.list
     sudo apt update && sudo apt -y upgrade
@@ -123,6 +129,7 @@ install_ubuntu() {
     setup_tmux
     install_python_package
     install_ohmyzsh
+    install_texlab
     symlink_for_ubuntu
     setup_neovim
     setup_git
