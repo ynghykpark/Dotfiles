@@ -21,7 +21,7 @@ install_texlab() {
 
 install_package_for_ubuntu() {
     declare -a packages; packages=( \
-        sudo curl git neovim zsh vifm tzdata \
+        sudo curl git neovim zsh vifm tzdata tmux \
         curl neovim tree highlight clangd-9 \
     )
     sudo sed -i "s/archive.ubuntu/mirror.kakao/g" /etc/apt/sources.list
@@ -67,22 +67,6 @@ setup_neovim() {
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         nvim +PlugInstall +qall!
     fi
-}
-
-setup_tmux() {
-    VERSION=2.4
-    sudo apt-get -y remove tmux
-    sudo apt-get -y install wget tar libevent-dev libncurses-dev
-    wget https://github.com/tmux/tmux/releases/download/${VERSION}/tmux-${VERSION}.tar.gz
-    tar xf tmux-${VERSION}.tar.gz
-    rm -f tmux-${VERSION}.tar.gz
-    cd tmux-${VERSION}
-    ./configure
-    make
-    sudo make install
-    cd -
-    sudo rm -rf /usr/local/src/tmux-*
-    sudo mv tmux-${VERSION} /usr/local/src
 }
 
 setup_git() {
@@ -131,7 +115,6 @@ setup_time() {
 
 install_ubuntu() {
     install_package_for_ubuntu
-    setup_tmux
     install_python_package
     install_ohmyzsh
     install_texlab
