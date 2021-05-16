@@ -4,7 +4,7 @@ export TERM=xterm-256color # Use gui 256 color
 
 # ohmyzsh
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 plugins=(
     git
     python
@@ -60,3 +60,5 @@ USER \${USER_NAME}
 WORKDIR /home/\${USER_NAME}
 RUN touch /home/\${USER_NAME}/.Xauthority # For GUI connection over ssh"
 }
+
+eval "$(starship init zsh)"

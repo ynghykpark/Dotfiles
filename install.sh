@@ -19,6 +19,11 @@ install_texlab() {
 }
 
 
+install_starship() {
+    sudo sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+}
+
+
 install_package_for_ubuntu() {
     declare -a packages; packages=( \
         sudo curl git neovim zsh vifm tzdata tmux \
@@ -121,6 +126,7 @@ install_ubuntu() {
     symlink_for_ubuntu
     setup_neovim
     setup_git
+    install_starship
     change_default_shell
     setup_time
 }
