@@ -56,6 +56,7 @@ symlink_for_ubuntu() {
         ["$ROOT/config/init.vim"]="$HOME/.config/nvim/init.vim"
         ["$ROOT/config/vifmrc"]="$HOME/.config/vifm/vifmrc"
         ["$ROOT/config/.gitconfig"]="$HOME/.gitconfig"
+        ["$ROOT/config/starship.toml"]="$HOME/.config/starship.toml"
     )
     for i in "${!symlink_table[@]}"
     do
