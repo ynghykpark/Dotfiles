@@ -4,7 +4,6 @@ export TERM=xterm-256color # Use gui 256 color
 
 # ohmyzsh
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="spaceship"
 plugins=(
     git
     python
