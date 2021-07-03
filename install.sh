@@ -27,7 +27,7 @@ install_starship() {
 install_package_for_ubuntu() {
     declare -a packages; packages=( \
         sudo curl git neovim zsh vifm tzdata tmux \
-        curl neovim tree highlight clangd-9 \
+        curl neovim tree highlight clangd-9 npm \
     )
     sudo sed -i "s/archive.ubuntu/mirror.kakao/g" /etc/apt/sources.list
     sudo apt update && sudo apt -y upgrade
@@ -35,6 +35,10 @@ install_package_for_ubuntu() {
     sudo add-apt-repository -y ppa:neovim-ppa/stable
     sudo apt-get update
     sudo apt-get install -y --no-install-recommends ${packages[@]}
+}
+
+install_gtop() {
+    sudo npm install gtop -g
 }
 
 
@@ -124,6 +128,7 @@ install_ubuntu() {
     install_python_package
     install_ohmyzsh
     install_texlab
+    install_gtop
     symlink_for_ubuntu
     setup_neovim
     setup_git
