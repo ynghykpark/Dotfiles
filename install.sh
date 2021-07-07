@@ -27,7 +27,7 @@ install_starship() {
 install_package_for_ubuntu() {
     declare -a packages; packages=( \
         sudo curl git neovim zsh vifm tzdata tmux \
-        curl neovim tree highlight clangd-9 npm \
+        curl neovim tree highlight clangd-9 \
     )
     sudo sed -i "s/archive.ubuntu/mirror.kakao/g" /etc/apt/sources.list
     sudo apt update && sudo apt -y upgrade
@@ -38,7 +38,9 @@ install_package_for_ubuntu() {
 }
 
 install_gtop() {
-    sudo npm install gtop -g
+    curl -LO https://github.com/ClementTsang/bottom/releases/download/0.6.2/bottom_0.6.2_amd64.deb
+    sudo dpkg -i bottom_0.6.2_amd64.deb
+    rm bottom_0.6.2_amd64.deb
 }
 
 
@@ -128,12 +130,11 @@ install_ubuntu() {
     install_python_package
     install_ohmyzsh
     install_texlab
-    install_gtop
+    install_gotop
     symlink_for_ubuntu
     setup_neovim
     setup_git
     install_starship
-    change_default_shell
     setup_time
 }
 
