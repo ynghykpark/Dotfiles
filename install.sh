@@ -37,7 +37,7 @@ install_package_for_ubuntu() {
     sudo apt-get install -y --no-install-recommends ${packages[@]}
 }
 
-install_gtop() {
+install_gotop() {
     curl -LO https://github.com/ClementTsang/bottom/releases/download/0.6.2/bottom_0.6.2_amd64.deb
     sudo dpkg -i bottom_0.6.2_amd64.deb
     rm bottom_0.6.2_amd64.deb
