@@ -45,9 +45,6 @@ fileviewer Dockerfile highlight -O xterm256 -s zenburn --syntax docker %c
 
 fileviewer */ tree %c -L 1 -C
 
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-    \ tput cup %py %px > /dev/tty && imgcat --width %pw --height %ph %c:p > /dev/tty
-
 filetype *.zip unzip %f
 filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz tar -xf %f
 filetype *.bz2 bzip2 -d %f
